@@ -1,0 +1,11 @@
+package com.docker.extended.admin.repository;
+
+import com.docker.extended.admin.domain.Param;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.UUID;
+
+@Repository
+public interface ParamRepository extends CrudRepository<Param, UUID> {
+}
