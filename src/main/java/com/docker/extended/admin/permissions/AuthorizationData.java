@@ -28,4 +28,16 @@ public class AuthorizationData {
             mUserRepository.save(mUser);
         });
     }
+
+    public void RmData(List<MUser> mUsers) {
+        mUsers.stream().forEach(mUser -> {
+            mUser.getMEndpoints().stream().forEach(mEndpoint -> {
+                mEndpoint.getMParams().stream().forEach(mParam -> {
+                    mParamRepository.delete(mParam);
+                });
+                mEndpointRepository.delete(mEndpoint);
+            });
+            mUserRepository.delete(mUser);
+        });
+    }
 }
